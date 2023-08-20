@@ -23,6 +23,7 @@ def read_root():
                 'hsi': row[6],
                 'c': row[7],
                 'user_agent': row[8],
-                'generated': row[9]
+                'generated': row[9],
+                'created_at': row[10]
             })
     return data

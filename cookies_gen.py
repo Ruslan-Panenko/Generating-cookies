@@ -1,4 +1,5 @@
 ### IMPORTS ###
+import datetime
 import logging  # For printing logs
 import re  # For regular expressions
 import sqlite3
@@ -45,19 +46,22 @@ def init_db():
             hsi TEXT,
             c TEXT,
             user_agent TEXT,
-            generated TEXT
+            generated TEXT,
+            created_at DATETIME
         )
         """)
         conn.commit()
 
 
 def save_to_db(data):
+    current_time = datetime.datetime.now()
+
     with sqlite3.connect(DATABASE_NAME) as conn:
         cursor = conn.cursor()
         cursor.execute("""
-        INSERT INTO cookies (sessionid, user_id, lsd, dtsg, hs, hsi, c, user_agent, generated)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, data)
+        INSERT INTO cookies (sessionid, user_id, lsd, dtsg, hs, hsi, c, user_agent, generated, created_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (*data, current_time))
         conn.commit()
 
 
