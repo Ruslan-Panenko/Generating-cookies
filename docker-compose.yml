@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - ./logs:/app/logs  # Assuming you want to keep logs outside the container

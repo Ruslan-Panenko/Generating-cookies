@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import sqlite3
 
-DATABASE_PATH = "../cookie_data.db"
+DATABASE_PATH = "cookie_data.db"
 
 app = FastAPI()
 
