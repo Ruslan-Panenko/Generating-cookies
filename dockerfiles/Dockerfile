@@ -11,10 +11,10 @@ RUN apt-get update \
 WORKDIR /app
 
 # Copy the requirements file to the container image
-COPY requirements.txt /app
+COPY ../requirements.txt /app
 
 # Copy the Python script to the container
-COPY . .
+COPY .. .
 
 # Install the Playwright Python package and other production dependencies
 RUN pip3 install -r requirements.txt
