@@ -7,4 +7,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/app
-      - ./logs:/app/logs  # Assuming you want to keep logs outside the container
+      - ./logs:/app/logs
+
+  fastapi_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app_fastapi
