@@ -1,5 +1,5 @@
-## Generating-cookies
+### Generating-cookies
 
-To run with docker: 
-- docker-compose up
+# To run with docker: 
+- `docker-compose up`
   
