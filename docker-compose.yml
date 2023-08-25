@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/Dockerfile
+    restart: on-failure
     volumes:
       - .:/app
       - ./logs:/app/logs
