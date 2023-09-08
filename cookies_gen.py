@@ -5,6 +5,7 @@ import re  # For regular expressions
 import sqlite3
 from urllib import parse  # For parsing urls
 import random
+from time import sleep
 
 # Import Playwright and stealth for browser automation
 from playwright.sync_api import sync_playwright
@@ -236,6 +237,7 @@ def main():
     cookie_generator = CookieGenerator()
     j = 0
     i = 0
+    iteration = 0
     # Generate cookies
     logger_2.info(f"Starting to generate cookies")
     while True:
@@ -247,7 +249,9 @@ def main():
             logger_2.info(f"Success - Generated cookies {i + 1 - j} out of {i + 1} times")
             # send response to logger_2
             logger_2.info(f"Complete response: {response}")
-        i += 1
+        iteration += 1
+        logger_2.info(f"Iteration ========  {iteration}")
+        sleep(20)
 
 
 # Guard for module vs script usage

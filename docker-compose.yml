@@ -4,7 +4,7 @@ services:
   scraper:
     build:
       context: .
-      dockerfile: dockerfiles/Dockerfile
+      dockerfile: Dockerfile
     volumes:
       - .:/app
       - ./logs:/app/logs
@@ -12,8 +12,11 @@ services:
   fastapi_app:
     build:
       context: .
-      dockerfile: dockerfiles/Dockerfile.fastapi
+      dockerfile: Dockerfile.fastapi
     ports:
       - "8000:8000"
     volumes:
       - .:/app_fastapi
+
+
+# 0 * * * * /usr/bin/python3 /root/Generating-cookies/scripts/cleanup_db.py
