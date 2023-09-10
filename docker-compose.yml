@@ -17,6 +17,3 @@ services:
       - "8000:8000"
     volumes:
       - .:/app_fastapi
-
-
-# 0 * * * * /usr/bin/python3 /root/Generating-cookies/scripts/cleanup_db.py
